@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Adresses</title>
+    <style>
+        body {
+            background-color: #e9ecef;
+            font-family: 'Arial', sans-serif;
+        }
+        .list-group-item {
+            background-color: #ffffff;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .list-group-item span {
+            display: block;
+        }
+        footer {
+            border-top: 2mm solid #007BFF;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+    <a class="navbar-brand" href="#">
+        <img src="https://i.imgur.com/qJjc8Jk.png" alt="Meteo Logo" width="30" height="30" class="d-inline-block align-top">  
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-dark" th:href="@{/greeting}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" th:href="@{/addresses}">Adresses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="#">Météo</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h2 class="mb-4 font-weight-bold">Adresses et Auteurs dans la base h2 </h2>
+    <ul class="list-group">
+        <li th:each="address : ${allAddresses}" class="list-group-item">
+            <span th:text="${address.auteur}"></span>
+            <br/>
+            <span th:text="${address.content}"></span>
+        </li>
+    </ul>
+    <nav class="mt-4">
+        <ul class="list-unstyled">
+            <li><a th:href="@{/greeting}" class="btn btn-primary">Revenir à l'Accueil</a></li>
+        </ul>
+    </nav>
+</div>
+
+<footer class="bg-white text-dark text-center py-3 fixed-bottom w-100">
+  <p>&copy; Koblan Emmanuel.</p>
+</footer>
+
+</body>
+</html>
+
